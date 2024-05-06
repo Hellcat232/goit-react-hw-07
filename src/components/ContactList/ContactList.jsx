@@ -7,10 +7,10 @@ import { useSelector } from "react-redux";
 const ContactList = () => {
   const contacts = useSelector(selectContacts);
   const filters = useSelector(selectNameFilter);
-  console.log(filters);
+  // console.log(filters);
 
   const filteredContacts = contacts.filter((contact) => {
-    console.log(contact);
+    // console.log(contact);
     return (
       contact.name.toLowerCase().includes(filters.toLowerCase()) ||
       contact.number.includes(filters)
@@ -22,7 +22,7 @@ const ContactList = () => {
       {filteredContacts.map((item) => {
         return (
           <li key={item.id}>
-            <Contact baseState={item} />
+            <Contact item={item} />
           </li>
         );
       })}
